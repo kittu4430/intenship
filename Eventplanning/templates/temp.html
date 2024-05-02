@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super User Website</title>
+<style>
+  /* Basic styling */
+  .content {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="content">
+  <!-- Editable content area -->
+  <div id="editableContent" contenteditable="true">
+    <h1>Welcome to Super User Website</h1>
+    <p>This is editable content. Super users can edit and style this text.</p>
+    <img src="example.jpg" alt="Example Image">
+  </div>
+  
+  <!-- Buttons for styling -->
+  <div>
+    <button onclick="applyBold()">Bold</button>
+    <button onclick="applyItalic()">Italic</button>
+    <button onclick="applyUnderline()">Underline</button>
+  </div>
+
+  <!-- Button for image deletion -->
+  <div>
+    <button onclick="deleteImage()">Delete Image</button>
+  </div>
+</div>
+
+<script>
+  // Function to apply bold styling
+  function applyBold() {
+    document.execCommand('bold', false, null);
+  }
+
+  // Function to apply italic styling
+  function applyItalic() {
+    document.execCommand('italic', false, null);
+  }
+
+  // Function to apply underline styling
+  function applyUnderline() {
+    document.execCommand('underline', false, null);
+  }
+
+  // Function to delete the image
+  function deleteImage() {
+    var img = document.querySelector('img');
+    img.parentNode.removeChild(img);
+  }
+</script>
+
+</body>
+</html>

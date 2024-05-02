@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Additional Custom Styles */
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f9fa;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      font-weight: bold;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+    .form-group input[type="file"] {
+      margin-top: 5px;
+    }
+    .form-group textarea {
+      height: 100px;
+    }
+    .form-group input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    .form-group input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="form-container">
+        <h2>Add New Event</h2>
+        <form action="{% url 'edit' events.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="form-group">
+            <label  for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" class="form-control" value="{{events.Event_Name}}" required>
+          </div>
+          <div class="form-group">
+            <label  for="event_image">Event Image:</label>
+            <input type="file" id="event_image" name="event_image" class="form-control-file" accept="image/*">
+          </div>
+          <div class="form-group">
+            <label  for="event_description">Event Description:</label>
+            <textarea id="event_description" name="event_description" class="form-control" rows="4"  required>{{events.Event_Description}}</textarea>
+          </div>
+          <div class="form-group">
+            <label  for="event_cost">Event Cost:</label>
+            <input type="number" id="event_cost" name="event_cost" class="form-control" value="{{events.Event_Cost}}" required>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-primary">
+            <p>You want to go back<a href="{% url 'index' %}">&nbsp;&nbsp;Home</a></p>
+          </div>
+        </form>
+    
