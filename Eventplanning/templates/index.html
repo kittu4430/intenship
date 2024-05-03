@@ -5,6 +5,8 @@
 <head>
 		<title>Event - Landing Page</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<meta name="description" content="">
 
@@ -16,7 +18,27 @@
 		<link href="{% static 'css/flexslider.css' %}" rel="stylesheet" media="screen">
 		<link href="{% static 'css/fancySelect.css' %}" rel="stylesheet" media="screen">
 		<link href="{% static 'css/responsive.css' %}" rel="stylesheet" media="screen">
+		<style>
+			.scrolling-text {
+				overflow: hidden;
+				white-space: nowrap;
+			}
+	
+			.scrolling-text p {
+				animation: marquee 10s linear infinite;
+			}
+	
+			@keyframes marquee {
+				0%   { transform: translateX(100%); }
+				100% { transform: translateX(-100%); }
+			}
+			body {
+    background-image: url('https://i.pinimg.com/originals/41/f1/8e/41f18e097ce678e7655adb46aa05f90a.jpg');
+    background-size: cover; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+}
 
+		</style>
 		<!--== Google Fonts ==-->
 		<link href= 'http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link href= 'http://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet' type='text/css'>
@@ -24,7 +46,13 @@
 	<link href= 'http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 	</head>
+	
 	<body>
+		<div class="card-body">
+			<h4>Welcome, {{ user_first_name }}!</h4>
+		</div>
+		
+
 		<header id="header">
 			<div id="menu" class="header-menu fixed">
 				<div class="box">
@@ -49,13 +77,14 @@
 								<!--== Navigation Menu ==-->
 								<ul class="nav navbar-nav">
 									<li class="current"><a href="#home">Home</a></li>
-									<li><a href="#about">About us</a></li>
+									<li><a href="#about">About Us</a></li>
 									<li><a href="#schedule">Schedule</a></li>
 									<li><a href="#blog">Blog</a></li>
-									<li><a href="{% url 'events' %}">ADDEVENT</a></li>
+									<li><a href="{% url 'events' %}">Add Events</a></li>
 									<li><a href="#prices">Pricing</a></li>
 									<li><a href="#contact">Contact</a></li>
-									<li><a href="{% url 'logout' %}">logout</a></li>
+									<li><a href="{% url 'profile' %}">Profile</a></li>
+									<!-- <li><a href="{% url 'logout' %}">logout</a></li> -->
 									
 								</ul>
 							</div>
@@ -69,11 +98,20 @@
 				<div class="container">
 					<div class="row">
 						<div class="entry-content">
-				            <p><span class="start-text"><b>From THE MARCH 7, 2014</b></span></p>
+				            <p><span class="start-text"><b>FROM THE APRIL 7, 2024</b></span></p>
 				            <h4 class="entry-title"><a href="{% static '#'%}">Organizing World class events</a></h4>
-				            <h5><span><b>Schrodinger confirms that Germany international ...</b></span></h5>
+				            <!-- <h5><span><b>Schrodinger confirms that Germany international ...</b></span></h5> -->
+							<div class="content">
+						<div class="container box">
+							<div class="scrolling-text">
+								<p>Countdown to an events you won't want to miss ...</p>
+							</div>
+						</div>
+					</div>
 					    </div>
 					</div>
+					
+					
 				</div>
 			</div>
 
@@ -111,24 +149,29 @@
 			<div class="container">
 			<div class="about-first">
 			<div class="block col-md-4">
+				<style>
+					.custom-text {
+						color: blue;
+					}
+				</style>
 				<div class="content-block">
 					<i class="fa fa-users fa-3x"></i>
 					<h3>Huge Customers</h3>
-					<p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p style="color: blue; font-size: 20px;">I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 			</div>
 			<div class="block col-md-4">
 				<div class="content-block">
 					<i class="fa fa-rocket fa-3x"></i>
 					<h3>RESPONSIVE DESIGN</h3>
-					<p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p style="color: blue; font-size: 20px;">I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 			</div>
 			<div class="block col-md-4">
 				<div class="content-block">
 					<i class="fa fa-trophy fa-3x"></i>
 					<h3>Award Winning Company</h3>
-					<p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p style="color: blue; font-size: 20px;">I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 			</div>
 			</div>
@@ -138,7 +181,7 @@
 				<h3>ABOUT US</h3>
 				
 
-				<p>Nullam enim nunc, sollicitudin eget rhoncus non, iaculis quis metus. Nunc urna diam, blandit nec ipsum eu, mollis convallis lectus. Vestibulum sapien mauris, auctor quis magna sed, pretium vestibulum est. Mauris vitae tristique urna. Nullam enim nunc, sollicitudin eget rhoncus non, iaculis quis metus. Nunc urna diam, blandit nec ipsum eu, mollis convallis lectus.
+				<p style="color: blue; font-size: 20px;">Nullam enim nunc, sollicitudin eget rhoncus non, iaculis quis metus. Nunc urna diam, blandit nec ipsum eu, mollis convallis lectus. Vestibulum sapien mauris, auctor quis magna sed, pretium vestibulum est. Mauris vitae tristique urna. Nullam enim nunc, sollicitudin eget rhoncus non, iaculis quis metus. Nunc urna diam, blandit nec ipsum eu, mollis convallis lectus.
 
 				Vestibulum sapien mauris, auctor quis magna sed, pretium vestibulum est. Mauris vitae tristique urna.</p>
 			</div>
@@ -173,7 +216,8 @@
 				<div class="title-start schedule-menu col-md-4 col-md-offset-4">
 				<br />
 					<h2>Events Schedule</h2>
-					<p class="sub-text text-center">Check out the event details</p>
+					<p class="sub-text text-center" style="text-decoration: underline; color: blue;">Check out the event details</p>
+
 				</div>
 					<ul class="timeline">
 					    <li>
@@ -396,7 +440,8 @@
 				<!--===============================-->
 			<section id="blog" class="row">
 				<div class="title-start col-md-4 col-md-offset-4"><h2>Blog</h2>	
-				<p class="sub-text text-center">Awesome news and articles from us</p>	
+					<p class="sub-text text-center" style="text-decoration: underline; color: blue;">
+					Awesome news and articles from us</p>	
 				</div>
 					<div class="top">
 					</div>
@@ -406,7 +451,7 @@
 					  <div class="blog col-md-4">
 					    <h2 class="blog-head">{{item.Event_Name}}</h2>
 					    <h3>
-					    Posted by <a href=" #">Shuvo</a><span class="date-line"> on April 1st</span>
+							Posted by <a href="#">ELITE_EVENTS</a><span class="date-line"> <span id="post-date"></span></span>
 					    </h3>
 					    <img class="blog-image" src="{{item.Event_Image.url}}" width="100%" height="250" alt="Blog Image 2"/>
 					    
@@ -427,6 +472,25 @@
 					  </div>
 					  {% endfor %}
 					</div>
+					<script>
+						window.onload = function() {
+							var currentDate = new Date();
+							var day = currentDate.getDate();
+							var month = currentDate.getMonth() + 1;
+							var year = currentDate.getFullYear();
+							var formattedDate = day + '/' + month + '/' + year;
+							document.getElementById('post-date').innerHTML = formattedDate;
+						};
+						function toggleOverview(element) {
+        var overview = element.getElementsByClassName("overview")[0];
+        if (overview.style.display === "none" || overview.style.display === "") {
+            overview.style.display = "block";
+        } else {
+            overview.style.display = "none";
+        }
+    }
+					</script>
+					
 				</section>
 				<!--==========-->
 				<!--===============================-->
@@ -540,7 +604,7 @@
 					<div class="container">
 				<div class="title-start team-menu col-md-4 col-md-offset-4">
 					<h2 class="team-heading">Our Team</h2>
-					<p class="sub-text text-center">Meet the greatest Team of Themewagon</p>
+					<p class="sub-text text-center custom-text">Meet the greatest Team of Themewagon</p>
 				</div>
 				</div>
 					<div class="team-member row">

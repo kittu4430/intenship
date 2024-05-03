@@ -84,3 +84,17 @@ def user_logout(request):
     logout(request)
     return render(request,'login.html')
 
+@login_required
+def index(request):
+    items = Events.objects.all()
+    user = request.user
+    user_first_name = user.first_name
+    user_last_name = user.last_name
+    user_email = user.email
+    # Do not include the password in the context
+    return render(request, 'index.html', {'items': items, 'user_first_name': user_first_name, 'user_last_name': user_last_name, 'user_email': user_email})
+
+
+def profile(request):
+    user = request.user
+    return render(request, 'profile.html', {'user': user})
