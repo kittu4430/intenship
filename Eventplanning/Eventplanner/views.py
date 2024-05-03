@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     items=Events.objects.all()
-    return render(request,'index.html',{'items':items})
+    return render(request,'blog.html',{'items':items})
 
 def add_events(request):
     if  request.method=='POST':
@@ -43,29 +43,38 @@ def delete_product(request,id):
     return redirect("/")
 
 def register(request):
-        if request.method=="POST":
-             fname=request.POST["firstName"]
-             lname=request.POST["lastName"]
-             username=request.POST["username"]
-             password1=request.POST["password"]
-             password2=request.POST["confirmPassword"]
-             email=request.POST['email']
-             if password1==password2:
-                  if User.objects.filter(username=username).exists():
-                       messages.error(request,"Username already exists! Please try another one.")
-                       return render(request,"register.html")
-                  elif User.objects.filter(email=email).exists():
-                       messages.error(request,"email already exists! Please try another one.")
-                       return render(request,"register.html")
-                  else:
-                       user=User.objects.create_user(first_name=fname,last_name=lname,username=username,password=password1,email=email)
-                       user.save()
-                       messages.success(request,"Registration Successful! You can now login.")
-                       return redirect("login")
-            
-             else:
-                  messages.error(request,"Password didn't match with Confirmpassword")
-        return render(request,"register.html")      
+    if request.method == "POST":
+        fname = request.POST["firstName"]
+        lname = request.POST["lastName"]
+        username = request.POST["username"]
+        password1 = request.POST["password"]
+        password2 = request.POST["confirmPassword"]
+        email = request.POST['email']
+        profile_picture = request.FILES.get('profilePicture')  # Get profile picture
+        
+        if password1 == password2:
+            if User.objects.filter(username=username).exists():
+                messages.error(request, "Username already exists! Please try another one.")
+                return render(request, "register.html")
+            elif User.objects.filter(email=email).exists():
+                messages.error(request, "Email already exists! Please try another one.")
+                return render(request, "register.html")
+            else:
+                # Create user
+                user = User.objects.create_user(first_name=fname, last_name=lname, username=username,
+                                                password=password1, email=email)
+                
+                # Save profile picture if provided
+                # if profile_picture:
+                #     user_profile = UserProfile.objects.create(user=user, profile_picture=profile_picture)
+                #     user_profile.save()
+
+                # messages.success(request, "Registration Successful! You can now login.")
+                # return redirect("login")
+        else:
+            messages.error(request, "Password didn't match with Confirm Password")
+    return render(request, "register.html")
+
 def user_login(request):
      if request.method=="POST":
         username=request.POST.get("username")
@@ -98,3 +107,17 @@ def index(request):
 def profile(request):
     user = request.user
     return render(request, 'profile.html', {'user': user})
+
+def about(request):
+    return render(request, 'about.html')
+def schedule(request):
+    return render(request, 'schedule.html')
+# def blog(request):
+#     return render(request, 'blog.html')
+
+def price(request):
+    return render(request, 'price.html')
+def contact(request):
+    return render(request, 'contact.html')
+def blog(request):
+    return render(request, 'blog.html')

@@ -1,0 +1,58 @@
+<section id="blog" class="row">
+    <div class="title-start col-md-4 col-md-offset-4"><h2>Blog</h2>	
+        <p class="sub-text text-center" style="text-decoration: underline; color: blue;">
+        Here is the events conducting from ELITE_EVENTS</p>	
+    </div>
+        <div class="top">
+        </div>
+        {%for item in items %}
+        <div class="content">
+          
+          <div class="blog col-md-4">
+            <h2 class="blog-head">{{item.Event_Name}}</h2>
+            <h3>
+                Posted by <a href="#">ELITE_EVENTS</a><span class="date-line"> <span id="post-date"></span></span>
+            </h3>
+            <img class="blog-image" src="{{item.Event_Image.url}}" width="100%" height="250" alt="Blog Image 2"/>
+            
+            <p class="firstpara"><span class="firstcharacter">{{item.Event_Description}}</span></p> 
+            <div class="btn_main">
+                <div class="buy_bt">
+                    
+            
+                <button type="button" class="bg-primary text-white text-xl fw-bold" onclick="editImage()">
+                    <a href="{% url 'edit' item.id %}">edit</a></button>
+                <button type="button" class="btn btn-danger red" onclick="deleteImage()">
+                    <a href="{% url 'delete' item.id %}">Delete</a></button>			
+                </div>
+            <h3 class="price_text">Price ${{item.Event_Cost}}</h3>
+             
+          </div>
+        
+          </div>
+          {% endfor %}
+        </div>
+        <script>
+            window.onload = function() {
+                var currentDate = new Date();
+                var day = currentDate.getDate();
+                var month = currentDate.getMonth() + 1;
+                var year = currentDate.getFullYear();
+                var formattedDate = day + '/' + month + '/' + year;
+                document.getElementById('post-date').innerHTML = formattedDate;
+            };
+            function toggleOverview(element) {
+var overview = element.getElementsByClassName("overview")[0];
+if (overview.style.display === "none" || overview.style.display === "") {
+overview.style.display = "block";
+} else {
+overview.style.display = "none";
+}
+}
+        </script>
+        
+    </section>
+    
+    
+
+
