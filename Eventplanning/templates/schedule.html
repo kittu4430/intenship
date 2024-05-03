@@ -177,10 +177,59 @@
 			color: #fff;
 			border-color: #e91e63;
 		}
+		nav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
 	</style>
 </head>
 
 <body>
+	<nav>
+		<ul>
+		  <li class="current"><a href="{% url 'index' %}">Home</a></li>
+										<li><a href="{% url 'about' %}">About Us</a></li>
+										<li><a href="{% url 'schedule' %}">Schedule</a></li>
+										<li><a href="{% url 'index' %}">Blog</a></li>
+										<li><a href="{% url 'events' %}">Add Events</a></li>
+										<li><a href="{% url 'price' %}">Pricing</a></li>
+										<li><a href="{% url 'contact' %}">Contact</a></li>
+										<li><a href="{% url 'profile' %}">Profile</a></li>
+										<!-- <li><a href="{% url 'logout' %}">logout</a></li> -->
+	
+		  <!-- Add more menu items as needed -->
+		</ul>
+	  </nav>
 	<section>
 		<div class="leftBox">
 			<div class="content">

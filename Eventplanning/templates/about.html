@@ -65,6 +65,33 @@ html {
   background-color: #555;
 }
 
+nav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
 @media screen and (max-width: 650px) {
   .column {
     width: 100%;
@@ -74,6 +101,22 @@ html {
 </style>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li class="current"><a href="{% url 'index' %}">Home</a></li>
+									<li><a href="{% url 'about' %}">About Us</a></li>
+									<li><a href="{% url 'schedule' %}">Schedule</a></li>
+									<li><a href="{% url 'schedule' %}">Blog</a></li>
+									<li><a href="{% url 'events' %}">Add Events</a></li>
+									<li><a href="{% url 'price' %}">Pricing</a></li>
+									<li><a href="{% url 'contact' %}">Contact</a></li>
+									<li><a href="{% url 'profile' %}">Profile</a></li>
+									<!-- <li><a href="{% url 'logout' %}">logout</a></li> -->
+
+      <!-- Add more menu items as needed -->
+    </ul>
+  </nav>
+  
 
 <div class="about-section">
   <h1>About Us </h1>
@@ -81,69 +124,73 @@ html {
   <p>Resize the browser window to see that this page is responsive by the way.</p>
 </div>
 
-<h2 style="text-align:center">Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Vamsi</h2>
-        <p class="title">Team leader/designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>srinu@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Basha</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>basha@example.com</p>
-        <p><button class="button">Contact</button></p>
+<div id="team">
+  <h2 style="text-align:center">Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2>Vamsi</h2>
+          <p class="title">Team leader/designer</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>srinu@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
       </div>
     </div>
-  </div>
-  
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>srinu</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>vamsi@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Sudheer</h2>
-        <p class="title">Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>sudheer@example.com</p>
-        <p><button class="button">Contact</button></p>
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2>Basha</h2>
+          <p class="title">Art Director</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>basha@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
       </div>
     </div>
-  </div>
+    
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2>srinu</h2>
+          <p class="title">Designer</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>vamsi@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
 
-  <div class="column">
-    <div class="card">
-      <div class="container">
-        <h2>Koushik</h2>
-        <p class="title">Manager</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>koushik@example.com</p>
-        <p><button class="button">Contact</button></p>
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2>Sudheer</h2>
+          <p class="title">Developer</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>sudheer@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <div class="container">
+          <h2>Koushik</h2>
+          <p class="title">Manager</p>
+          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+          <p>koushik@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Add more sections of your page as needed -->
 
 </body>
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Payment section styles */
+        #paymentSection {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .payment-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .payment-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .payment-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .payment-method {
+            margin-bottom: 15px;
+        }
+
+        .payment-method label {
+            margin-right: 10px;
+        }
+
+        .payment-method input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center mb-4">Event Booking Form</h2>
+    <form id="bookingForm" action="#" method="post">
+        <!-- Page 1: Initial information -->
+        <div id="initialSection">
+            <div class="form-group">
+                <label for="seats">Number of Seats</label>
+                <input type="number" class="form-control" id="seats" name="seats" required>
+            </div>
+
+            <div class="form-group">
+                <label for="seatType">Type of Seat</label>
+                <select class="form-control" id="seatType" name="seatType" required>
+                    <option value="Gold">Gold/7000-/-</option>
+                    <option value="Premium">Premium/5000-/-</option>
+                    <option value="General">General/3500-/-</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fullName">Your Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+            </div>
+
+            <button id="nextButton" class="btn btn-primary">Next</button>
+        </div>
+
+        <!-- Page 2: Payment information -->
+        <div id="paymentSection">
+            <div class="form-group payment-method">
+                <label class="payment-label">Payment Method:</label>
+                <label><input type="radio" name="paymentMethod" value="Credit Card" checked> Credit Card</label>
+                <label><input type="radio" name="paymentMethod" value="PayPal"> PayPal</label>
+                <label><input type="radio" name="paymentMethod" value="Bank Transfer"> Bank Transfer</label>
+                <label><input type="radio" name="paymentMethod" value="Cash on Arrival"> Cash on Arrival</label>
+                <label><input type="radio" name="paymentMethod" value="Other"> Other</label>
+            </div>
+
+            <div class="form-group">
+                <label class="payment-label" for="cardNumber">Credit Card Number</label>
+                <input type="text" class="form-control payment-input" id="cardNumber" name="cardNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label class="payment-label" for="expiryDate">Expiry Date</label>
+                <input type="text" class="form-control payment-input" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+            </div>
+
+            <div class="form-group">
+                <label class="payment-label" for="cvv">CVV</label>
+                <input type="text" class="form-control payment-input" id="cvv" name="cvv" maxlength="3" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("nextButton").addEventListener("click", function(event){
+        event.preventDefault();
+        document.getElementById("initialSection").style.display = "none";
+        document.getElementById("paymentSection").style.display = "block";
+    });
+</script>
+
+</body>
+</html>

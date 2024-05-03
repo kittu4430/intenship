@@ -58,9 +58,57 @@
     width: 100%;
   }
 }
+nav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
 </style>
 </head>
 <body>
+  <nav>
+		<ul>
+		  <li class="current"><a href="{% url 'index' %}">Home</a></li>
+										<li><a href="{% url 'about' %}">About Us</a></li>
+										<li><a href="{% url 'schedule' %}">Schedule</a></li>
+										<li><a href="{% url 'schedule' %}">Blog</a></li>
+										<li><a href="{% url 'events' %}">Add Events</a></li>
+										<li><a href="{% url 'price' %}">Pricing</a></li>
+										<li><a href="{% url 'contact' %}">Contact</a></li>
+										<li><a href="{% url 'profile' %}">Profile</a></li>
+										<!-- <li><a href="{% url 'logout' %}">logout</a></li> -->
+	
+		  <!-- Add more menu items as needed -->
+		</ul>
+	  </nav>
 
 <h2 style="text-align:center">Book the tickets for concerts</h2>
 <p style="text-align:center">In this moment, everything else fades away</p>
@@ -94,7 +142,7 @@
     <li>100 seats </li>
     <li>2 Coupon cards</li>
     <li>drinks</li>
-    <li class="grey"><a href="#" class="button">Order Snow</a></li>
+    <li class="grey"><a href="{% url 'payments' %}" class="button">Order now</a></li>
   </ul>
 </div>
 

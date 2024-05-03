@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Event Booking Form</h2>
+    <form action="#" method="post">
+        <label for="eventName">Event Name</label>
+        <input type="text" id="eventName" name="eventName" required>
+
+        <label for="eventDate">Event Date</label>
+        <input type="date" id="eventDate" name="eventDate" required>
+
+        <label for="eventTime">Event Time</label>
+        <input type="time" id="eventTime" name="eventTime" required>
+
+        <label for="eventLocation">Event Location</label>
+        <input type="text" id="eventLocation" name="eventLocation" required>
+
+        <label for="description">Description of the Event</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="company">Company/Organization/persional Events</label>
+        <input type="text" id="company" name="company">
+
+        <label for="attendees">Number of Attendees</label>
+        <input type="number" id="attendees" name="attendees" min="1" required>
+
+        
+
+        <label for="specialRequests">Special Requests</label>
+        <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+
+         <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" name="price" value="60,000/-" readonly>
+
+		  <label for="paymentMethod">Payment Method</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="Credit Card">Credit Card</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Cash on Arrival">Cash on Arrival</option>
+            <option value="Other">Other</option>
+        </select>
+
+    
+
+        <label for="cardNumber">Credit Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" maxlength="3" required>
+
+		<input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the <a href="#">terms and conditions</a></label>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
